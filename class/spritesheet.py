@@ -12,6 +12,7 @@ class SpriteSheet(object):
         try:
             sprite_sheet_image = pygame.image.load(filename)
             self.sheet = sprite_sheet_image.convert_alpha()
+            self.mask = pygame.mask.from_surface(self.sheet)
         except pygame.error as message:
             print('Unable to load spritesheet image:', filename)
             raise SystemExit(message)
